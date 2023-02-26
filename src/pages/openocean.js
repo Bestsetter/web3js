@@ -1,22 +1,17 @@
-import React from 'react'
-import Web3 from 'web3'
-import { OpenoceanApiSdk } from '@openocean.finance/api';
+import React, { useEffect } from "react";
+import Web3 from "web3";
+import dynamic from "next/dynamic";
 
-// const openoceanApiSdk = new OpenoceanApiSdk()
-// const { api, swapSdk, config } = openoceanApiSdk
 
-// api.getTokenList({
-//     chain: 'BSC',
-// }).then((data) => {
-//     console.log(data)
-// }).catch((error) => {
-//     return
-// });
+const OpenoceanComponents = dynamic(() => import('@/components/OpenoceanComponent'), {
+  ssr: false,
+})
 
-function openocean() {
+export default function Openocean() {
   return (
-    <div>openocean</div>
-  )
+    <div>
+      openocean
+      <OpenoceanComponents />
+    </div>
+  );
 }
-
-export default openocean;
