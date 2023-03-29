@@ -26,7 +26,7 @@ const VendingMachine = () =>{
 	const contract_lottery_nft = new web3.eth.Contract(lottery_nft_abi,process.env.NEXT_PUBLIC_lottery_nft_address)
     // console.log(contract_lottery_nft)
     const contract_lottery_recieve = new web3.eth.Contract(lottery_recieve_abi,process.env.NEXT_PUBLIC_lottery_recieve_address)
-    console.log(contract_lottery_recieve)
+    // console.log(contract_lottery_recieve)
     const contract_lottery_winner = new web3.eth.Contract(lottery_winner_abi,process.env.NEXT_PUBLIC_lottery_winner_address)
     // console.log(contract_lottery_winner)
     const contract_lottery_transection = new web3.eth.Contract(lottery_transection_abi,process.env.NEXT_PUBLIC_lottery_transection_address)
