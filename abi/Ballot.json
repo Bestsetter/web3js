@@ -1,0 +1,514 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"name": "delegate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			},
+			{
+				"internalType": "string",
+				"name": "_proposeData",
+				"type": "string"
+			}
+		],
+		"name": "propose",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract Ilottery_recieve",
+				"name": "_contract_lottery_recieve",
+				"type": "address"
+			},
+			{
+				"internalType": "contract Ilottery_winner",
+				"name": "_contract_lottery_winner",
+				"type": "address"
+			}
+		],
+		"name": "set_contract",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			},
+			{
+				"internalType": "bool",
+				"name": "_eventIdStar",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "_eventIdCancel",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_voteFee",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_proposeFee",
+				"type": "uint256"
+			}
+		],
+		"name": "setEvent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint16",
+				"name": "year_end",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint8",
+				"name": "month_end",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "day_end",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "hour_end",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "minute_end",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "second_end",
+				"type": "uint8"
+			}
+		],
+		"name": "setEventEnd",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint16",
+				"name": "year_start",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint8",
+				"name": "month_start",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "day_start",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "hour_start",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "minute_start",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "second_start",
+				"type": "uint8"
+			}
+		],
+		"name": "setEventStart",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_eventIdStar",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "_eventIdCancel",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_voteFee",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_proposeFee",
+				"type": "uint256"
+			}
+		],
+		"name": "setNewEvent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_setter",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "_setterRight",
+				"type": "bool"
+			}
+		],
+		"name": "setSetter",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract Ilottery_token",
+				"name": "tokenAddress",
+				"type": "address"
+			}
+		],
+		"name": "setTokenAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			},
+			{
+				"internalType": "address",
+				"name": "voter",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "num",
+				"type": "uint8"
+			}
+		],
+		"name": "takeRightToVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint256",
+				"name": "proposal",
+				"type": "uint256"
+			}
+		],
+		"name": "vote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			}
+		],
+		"name": "_winningProposal",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "winningProposal_",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "allSetter",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "",
+				"type": "uint16"
+			}
+		],
+		"name": "event_detail",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "timeStart",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timeEnd",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "eventIdStar",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "eventIdCancel",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "voteFee",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "proposeFee",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "event_proposals",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "name",
+				"type": "bytes"
+			},
+			{
+				"internalType": "uint256",
+				"name": "voteCount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "setGoat",
+		"outputs": [],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "setter_bool",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "token_address",
+		"outputs": [
+			{
+				"internalType": "contract Ilottery_token",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalEvent",
+		"outputs": [
+			{
+				"internalType": "uint16",
+				"name": "",
+				"type": "uint16"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint16",
+				"name": "eventId",
+				"type": "uint16"
+			}
+		],
+		"name": "winnerName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
