@@ -53,7 +53,7 @@ const VendingMachine = () =>{
     const [eventdetail,setEventdetail] = useState('unknow')
     const [eventfee,setEventfee] = useState('unknow')
     const [eventpriceperticket,setEventpriceperticket] = useState('unknow')
-    const [eventstartEnd,setEventstartEnd] = useState('unknow')
+    const [eventstartEnd,setEventstartEnd] = useState(['','','',''])
     const [eventidname,setEventidname] = useState('unknow')
     const [eventid,setEventid] = useState()
 	const handlecanbuychange = (e) => {
@@ -61,6 +61,10 @@ const VendingMachine = () =>{
 	}
     const handleeventidchange = (e) => {
 		setEventid(e.target.value)
+	}
+    const [ticketid,setTicketid] = useState()
+    const handleticketidchange = (e) => {
+		setTicketid(e.target.value)
 	}
 
 
@@ -156,8 +160,8 @@ const VendingMachine = () =>{
     }
     const event_startEnd = () => {
         const callfunction = contract_event.methods.event_startEnd(eventid).call();
-		callfunction.then((a) => { console.log(a) })
-        callfunction.then((a) => { setEventstartEnd(String(a)) })
+		callfunction.then((a) => { console.log(a[0],a[1],a['timeEnd'],a['timeStart']) })
+        callfunction.then((a) => { setEventstartEnd([a[0],a[1],a['timeEnd'],a['timeStart']]) })
     }
     const eventId_name = () => {
         const callfunction = contract_event.methods.eventId_name(eventid).call();
@@ -231,17 +235,17 @@ const VendingMachine = () =>{
         callfunction.then((a) => { setExchangeaddress(a) })
     }
     const getLatestPrice = () => {
-        const callfunction = contract_lottery_transection.methods.getLatestPrice(0,1,0).call();//活動代碼，票數，第幾種代幣
+        const callfunction = contract_lottery_transection.methods.getLatestPrice(0,2,0).call();//活動代碼，票數，第幾種代幣
 		console.log(callfunction)
     }
 
     // contract_lottery_winner
     const getTokenId_win = () => {
-        const callfunction = contract_lottery_winner.methods.getTokenId_win().call();
+        const callfunction = contract_lottery_winner.methods.getTokenId_win(ticketid).call();
 		console.log(callfunction)
     }
     const getEventId_wintokenId = () => {
-        const callfunction = contract_lottery_winner.methods.getEventId_wintokenId().call();
+        const callfunction = contract_lottery_winner.methods.getEventId_wintokenId(eventid).call();
 		console.log(callfunction)
     }
     const getEventId_wintokenIdLength = () => {
@@ -257,7 +261,7 @@ const VendingMachine = () =>{
 		console.log(callfunction)
     }
     const getTokenId_takenmoney = () => {
-        const callfunction = contract_lottery_winner.methods.getTokenId_takenmoney().call();
+        const callfunction = contract_lottery_winner.methods.getTokenId_takenmoney(ticketid).call();
 		console.log(callfunction)
     }
     // const tokenId_takenmoney = () => {
@@ -400,7 +404,10 @@ const VendingMachine = () =>{
                         <button onClick={event_startEnd} className='button is-primary'>
                             event_startEnd
                         </button>
-                        <span>{eventstartEnd}</span>
+                        <span>{eventstartEnd[0]},</span>
+                        <span>{eventstartEnd[1]},</span>
+                        <span>{eventstartEnd[2]},</span>
+                        <span>{eventstartEnd[3]}</span>
                     </div>
                     <div>
                         <button onClick={eventId_name} className='button is-primary'>
@@ -443,6 +450,10 @@ const VendingMachine = () =>{
                         <span>{totalamount}</span>
                     </div>
                     <div>
+                        <input placeholder='ticketid' value={ticketid} onChange={handleticketidchange} />
+                        <span>ticketid</span>
+                    </div>
+                    <div>
                         <button onClick={getTokenId_takenmoney} className='button is-primary'>
                             getTokenId_takenmoney
                         </button>
@@ -481,21 +492,21 @@ const VendingMachine = () =>{
                     {/* ======================================================= */}
                     <div><h1>contract_lottery_transection</h1></div>
                     <div>
-                        <button onClick={AllowedCrypto} className='button is-primary'>
-                            AllowedCrypto
-                        </button>
-                    </div>
-                    <div>
-                        <button onClick={token_address} className='button is-primary'>
+                        <button onClick={token_address} className='button'>
                             token_address
                         </button>
                         <span>{tokenaddress}</span>
                     </div>
                     <div>
-                        <button onClick={exchange_address} className='button is-primary'>
+                        <button onClick={exchange_address} className='button'>
                             exchange_address
                         </button>
                         <span>{exchangeaddress}</span>
+                    </div>
+                    <div>
+                        <button onClick={AllowedCrypto} className='button is-primary'>
+                            AllowedCrypto
+                        </button>
                     </div>
                     <div>
                         <button onClick={getLatestPrice} className='button is-primary'>
