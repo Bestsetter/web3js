@@ -66,9 +66,6 @@ const VendingMachine = () =>{
     const [getEventIdwintokenIdLength,setGetEventIdwintokenIdLength] = useState('eventid')
     const [getEventIdwintokenId,setGetEventIdwintokenId] = useState('eventid,rank')
     const [getTokenIdwin,setGetTokenIdwin] = useState('ticketid')
-    const [allowedCrypto,setAllowedCrypto] = useState(['tokenid'])
-    const [getlatestprice,setGetlatestprice] = useState('eventid,tickets,tokenid')
-    const [bonustowiner,setBonustowiner] = useState('ticketid')
     const [eventid,setEventid] = useState()
 	const handlecanbuychange = (e) => {
 		setCanbuy(e.target.value)
@@ -83,14 +80,6 @@ const VendingMachine = () =>{
     const [list,setList] = useState()
     const handlelistchange = (e) => {
 		setList(e.target.value)
-	}
-    const [tokenid,setTokenid] = useState()
-    const handletokenidchange = (e) => {
-		setTokenid(e.target.value)
-	}
-    const [tickets,setTickets] = useState()
-    const handleticketschange = (e) => {
-		setTickets(e.target.value)
 	}
 
 
@@ -248,9 +237,9 @@ const VendingMachine = () =>{
 
     // contract_lottery_transection
     const AllowedCrypto = () => {
-        const callfunction = contract_lottery_transection.methods.AllowedCrypto(tokenid).call();
+        const callfunction = contract_lottery_transection.methods.AllowedCrypto(1).call();
 		console.log(callfunction)
-        callfunction.then((a) => { setAllowedCrypto([a[0],a[1],a[2],a[3]]) })
+        callfunction.then((a) => { console.log(a[0]);console.log(a[1]);console.log(a[2]);console.log(a[3]) })
     }
     const token_address = () => {
         const callfunction = contract_lottery_transection.methods.token_address().call();
@@ -263,14 +252,8 @@ const VendingMachine = () =>{
         callfunction.then((a) => { setExchangeaddress(a) })
     }
     const getLatestPrice = () => {
-        const callfunction = contract_lottery_transection.methods.getLatestPrice(eventid,tickets,tokenid).call();//活動代碼，票數，第幾種代幣
+        const callfunction = contract_lottery_transection.methods.getLatestPrice(0,2,0).call();//活動代碼，票數，第幾種代幣
 		console.log(callfunction)
-        callfunction.then((a) => { setGetlatestprice(a) })
-    }
-    const bonusToWiner = () => {
-        const callfunction = contract_lottery_transection.methods.bonusToWiner(ticketid).call();
-		console.log(callfunction)
-        callfunction.then((a) => { setBonustowiner(a) })
     }
 
     // contract_lottery_winner
@@ -550,30 +533,14 @@ const VendingMachine = () =>{
                         <span>{exchangeaddress}</span>
                     </div>
                     <div>
-                        <input placeholder='tokenid' value={tokenid} onChange={handletokenidchange} />
-                        <span>tokenid</span>
-                    </div>
-                    <div>
                         <button onClick={AllowedCrypto} className='button is-primary'>
                             AllowedCrypto
                         </button>
-                        <span>{allowedCrypto}</span>
-                    </div>
-                    <div>
-                        <input placeholder='tickets' value={tickets} onChange={handleticketschange} />
-                        <span>tickets</span>
                     </div>
                     <div>
                         <button onClick={getLatestPrice} className='button is-primary'>
                             getLatestPrice
                         </button>
-                        <span>{getlatestprice}</span>
-                    </div>
-                    <div>
-                        <button onClick={bonusToWiner} className='button is-primary'>
-                            bonusToWiner
-                        </button>
-                        <span>{bonustowiner}</span>
                     </div>
                     
                     
